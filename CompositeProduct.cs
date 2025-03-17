@@ -9,13 +9,14 @@ namespace Retail_Sales
     internal class CompositeProduct : Product
     {
         private List<Product> _products;
-        private decimal _discount;
+        public List<Product> Products => _products;
+        public decimal Discount;
 
         public CompositeProduct(int id, string name, decimal discount)
         : base(id, name, 0)
         {
             _products = new List<Product>();
-            _discount = discount;
+            Discount = discount;
         }
 
         public void AddProduct(Product product)
@@ -32,13 +33,13 @@ namespace Retail_Sales
                 total += product.CalculateTotalPrice();
             }
 
-            return total * (1 - _discount);
+            return total * (1 - Discount);
         }
 
         public override string ToString()
         {
             var productDetails = string.Join("\n", _products.Select(p => $"  - {p.ToString()}"));
-            return $"{base.ToString()} | Descuento: {_discount * 100}%\nProductos incluidos:\n{productDetails}";
+            return $"{base.ToString()} | Descuento: {Discount * 100}%\nProductos incluidos:\n{productDetails}";
         }
 
     }
