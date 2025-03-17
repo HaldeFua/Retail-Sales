@@ -6,7 +6,17 @@ using System.Threading.Tasks;
 
 namespace Retail_Sales
 {
-    internal interface IProduct
+    public interface IProduct
     {
+
+        int ID { get; }        
+        string Nombre { get; }  
+        decimal Precio { get; }  
+        decimal Impuesto { get; }
+        
+        decimal CalcularPrecioTotal();
+
+        string ToString();
+
     }
 }
