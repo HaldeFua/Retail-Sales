@@ -10,11 +10,11 @@ namespace Retail_Sales
     {
 
         int ID { get; }        
-        string Nombre { get; }  
-        decimal Precio { get; }  
-        decimal Impuesto { get; }
+        string Name { get; }  
+        decimal Price { get; }  
+        decimal Tax { get; }
         
-        decimal CalcularPrecioTotal();
+        decimal CalculateTotalPrice();
 
         string ToString();
 

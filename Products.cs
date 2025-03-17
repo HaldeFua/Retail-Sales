@@ -3,10 +3,11 @@ using System.Collections.Generic;
 using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
+using static System.Runtime.InteropServices.JavaScript.JSType;
 
 namespace Retail_Sales
 {
-    public abstract class Products
+    public abstract class Products : IProduct
     {
 
         public int ID { get; protected set; }
@@ -27,6 +28,12 @@ namespace Retail_Sales
             Price = price;
         }
 
+        public abstract decimal CalculateTotalPrice();
+
+        public override string ToString()
+        {
+            return $"ID: {ID} | {Name} | Precio: ${Price:N2} | Impuesto: {Tax * 100}%";
+        }
 
     }
 }
