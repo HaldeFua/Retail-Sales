@@ -7,7 +7,7 @@ using static System.Runtime.InteropServices.JavaScript.JSType;
 
 namespace Retail_Sales
 {
-    public abstract class Products : IProduct
+    public abstract class Product : IProduct
     {
 
         public int ID { get; protected set; }
@@ -15,13 +15,7 @@ namespace Retail_Sales
         public decimal Price { get; protected set; }
         public decimal Tax { get; protected set; } = 0.19m;
 
-        private decimal _discount;
-
-        public Products()
-        {
-        }
-
-        public Products(int iD, string name, decimal price)
+        public Product(int iD, string name, decimal price)
         {
             ID = iD;
             Name = name;
